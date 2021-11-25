@@ -1,0 +1,17 @@
+{% extends 'QuestionApp/base.html' %}
+
+{% block header%}
+    my investigation Questionnaire
+{% endblock%}
+
+{% block content%}
+<ol>
+{% if question_list %}
+    {% for q in question_list %}
+        <li><a href="{% url 'question_detail' q.pk%}">{{ q.question_text}}</li>
+    {% endfor %}
+{% else %}
+    There is no question published yet.
+{% endif %}
+</ol>
+{% endblock %}

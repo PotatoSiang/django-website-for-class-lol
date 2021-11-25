@@ -1,0 +1,17 @@
+{% extends 'QuestionApp/base.html' %}
+
+{% block header%}
+    my investigation Questionnaire
+{% endblock%}
+
+{% block content%}
+<ol>
+{% if object.choice_set %}
+    {% for c in object.choice_set.all %}
+        <li>{{ c.choice_text}}</li>
+    {% endfor %}
+{% else %}
+    There is no question published yet.
+{% endif %}
+</ol>
+{% endblock %}
