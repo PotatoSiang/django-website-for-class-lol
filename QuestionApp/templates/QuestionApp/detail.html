@@ -1,4 +1,9 @@
 {% extends 'QuestionApp/base.html' %}
+{% load static %}
+
+{% block logo%}
+    <img class='img2' src="{% static 'QuestionApp/img/2.jpg' %}">
+{% endblock%}
 
 {% block header%}
     my investigation Questionnaire
