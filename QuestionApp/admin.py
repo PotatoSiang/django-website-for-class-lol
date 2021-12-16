@@ -1,13 +1,13 @@
 from django.contrib import admin
 
-from .models import Choice, Question, Vote, Comment
+from QuestionApp.models import Choice, Comment, Question, Vote
 
 # Register your models here.
-class ChoiceInline(admin.TabularInline):
+class ChoiceInLine(admin.TabularInline):
     model = Choice
     extra = 1
 class QuestionAdmin(admin.ModelAdmin):
-    inlines=[ChoiceInline]
+    inlines=[ChoiceInLine]
     list_display = ('question_text', 'pub_date')
 
 admin.site.register(Question, QuestionAdmin)
@@ -16,15 +16,19 @@ admin.site.register(Question, QuestionAdmin)
 class ReadOnlyMixin:
     def has_add_permission(self, request):
         return False
+'''
     def has_change_permission(self, request, obj=None):
         return False
     def has_delete_permission(self, request, obj=None):
         return False
-    
+'''
 class VoteAdmin(ReadOnlyMixin, admin.ModelAdmin):
     list_display = ('voter_name', 'vote_date', 'choice')
+
+
 admin.site.register(Vote, VoteAdmin)
 
-class CommentAdmin(ReadOnlyMixin, admin.ModelAdmin):
+class CommentAdmin(ReadOnlyAdminMixin, admin.ModelAdmin):
     pass
+
 admin.site.register(Comment, CommentAdmin)
