@@ -21,5 +21,5 @@ admin.site.site_title = 'Simple Survey'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('QuestionApp.urls')),
+    path('', include('QuestionApp.urls')),
 ]

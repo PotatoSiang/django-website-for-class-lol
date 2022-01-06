@@ -1,23 +1,25 @@
 {% extends 'QuestionApp/base.html' %}
 {% load static %}
 
-{% block logo%}
-    <img class='img2' src="{% static 'QuestionApp/img/2.jpg' %}">
+{% block logo %}
+    <img class="img2" src="{% static 'QuestionApp/img/2.jpg' %}">
+{% endblock %}
+
+{% block header_content%}
+    <h2>
+        my investigation questionnaire 4
+    </h2>
 {% endblock%}
 
-{% block header%}
-    my investigation Questionnaire
-{% endblock%}
-
-{% block content%}
+{% block content %}
 <ol>
-{% if object.choice_set %}
-    {% for c in object.choice_set.all %}
-        <li>{{ c.choice_text}}</li>
-    {% endfor %}
-{% else %}
-    There is no question published yet.
-{% endif %}
+    {% if question.choice_set %}
+        {% for c in question.choice_set.all %}
+            <li>{{ c.choice_text }}</li><br>
+        {% endfor %}
+    {% else %}
+        There is no any options for this question.
+    {% endif %}
 </ol>
-<a href= '{% url 'home' %}'>Back to homepage</a>
+
 {% endblock %}

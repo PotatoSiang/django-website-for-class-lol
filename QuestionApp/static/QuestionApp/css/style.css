@@ -8,7 +8,6 @@ header {
     border-bottom: 1px solid #999;
     margin-bottom: 2rem;
     display: flex;
-
 }
 .nav-left {
     margin-right: auto;
@@ -24,6 +23,9 @@ header {
 }
 .img2 {
     width: 50px;
-    height: auto;
+    height:auto;
     float: left;
+}
+.flex-wrapper{
+    display: flex;
 }
